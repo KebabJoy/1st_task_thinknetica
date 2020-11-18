@@ -1,29 +1,29 @@
 class Station
-    attr_reader :name; :trains 
-    def initialize(name)
-        @trains = []
-        @name = name
-    end
-    def trainsCount
-        @trains.length
-    end
-    def addTrain(train)
-        @trains << train
-    end 
-    def deleteTrain(train)
-        @trains.delete(train)
-    end
-    def trains
-        @trains
-    end
-    def trainsByType(type)
-        @trains.select {|train| train.type == type }                 
-    end
-    def departTrain(train)
-        if trains.include?(train)
-            trains.delete(train)
-        else
-            puts "Поезда нет на этой станции"
-        end
-    end
+	attr_reader :name; :trains
+	def initialize(name)
+		@trains = []
+		@name = name
+	end
+	def trains_count
+		@trains.length
+	end
+	def add_train(train)
+		@trains << train
+	end
+	def delete_train(train)
+		@trains.delete(train)
+	end
+	def trains
+		@trains
+	end
+	def trains_by_type(type)
+		@trains.select {|train| train.type == type }
+	end
+	def depart_train(train)
+		if trains.include?(train)
+			trains.delete(train)
+		else
+			puts "Поезда нет на этой станции"
+		end
+	end
 end
