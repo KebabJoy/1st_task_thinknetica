@@ -1,40 +1,16 @@
-class Station
-    attr_reader :name; :trains
-    def initialize(name)
-        @name = name
-    end
-    def trainsCount
-        @trains.length
-    end
-    def addTrain(train)
-        @trains << train
-    end 
-    def trains
-        @trains
-    end
-    def trainsByType(type)
-        return @trains.select {|train| train.type == type }
-    end
-end
+require './route.rb'
+require './station.rb'
+require './train.rb'
 
-class Route
-    attr_reader :start; :finish; :route
-    def initialize(start,finish)
-        @start = start
-        @finish = finish
-    end
-    def addStation(station)
-        @route << route
-    end
-end
+st = Station.new("belyaevo")
+st1 = Station.new("konkovo")
+rot = Route.new(st,st1)
 
 
-class Train
-    attr_reader :type; :number; :wagonsCount
-    def initialize(type, num, wagons)
-        @type = type
-        @number = num
-        @wagonsCount = wagons
-    end
-    
-end
+tr = Train.new("Грузовой",20,8,rot)
+puts tr.current_station
+puts tr.next_station
+tr.move_to_next_station
+puts tr.next_station
+
+
